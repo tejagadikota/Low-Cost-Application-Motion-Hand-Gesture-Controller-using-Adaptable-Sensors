@@ -1,3 +1,4 @@
+/////////////////////////////Arduino_code//////////////////////////////////////////////////////////////////////////////
 const int trigger1 = 2; //Trigger pin of 1st Sesnor
 const int echo1 = 3; //Echo pin of 1st Sesnor
 const int trigger2 = 4; //Trigger pin of 2nd Sesnor
@@ -81,3 +82,27 @@ if (distR>=13 && distR<=17)
 }
 delay(100);
 } 
+////////////////////////////////Python_code/////////////////////////////////////
+import serial
+import time
+import pyautogui
+AurduinoSerial = serial.Serial('com3',9600)
+time.sleep(2)
+while 1:
+    incomming =str (ArduinoSerial.readline())
+    print(incomming)
+    if 'Play/Pause' in incomming :
+        pyautogui.typewrite(['space'], 0.2)
+    if 'Rewind' in incomming :
+         pyautogui.hotkey('ctrl','left')
+    if 'Forward' in incomming :
+         pyautogui.hotkey('ctrl','right')
+    if 'Vup' in incomming :
+         pyautogui.hotkey('ctrl','down')
+    if 'Vdown' in incomming :
+         pyautogui.hotkey('ctrl','up')
+    if 'next' in incomming :
+         pyautogui.hotkey('ctrl','x')
+    incomming = " " ;
+   
+      
